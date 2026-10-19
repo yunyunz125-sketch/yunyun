@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>插畫創作｜月和和</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #F7F4EE;
+            color: #51483F;
+            font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 24px;
+        }
+
+        .back {
+            color: #82766A;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            padding: 35px 0;
+        }
+
+        h1 {
+            font-size: 32px;
+            letter-spacing: 4px;
+        }
+
+        .intro {
+            color: #82766A;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: normal;
+            border-bottom: 1px solid #E5DCCF;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .work {
+            background-color: white;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .work img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .work p {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            color: #A49A8F;
+            margin-top: 50px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <a href="index.html" class="back">
+            ← 返回個人首頁
+        </a>
+
+        <header>
+            <h1>自我介紹</h1>
+
+            <p class="intro">
+                你好，我是昀耘。
+                這裡收藏了我的繪畫作品與創作紀錄，
+                希望透過畫面呈現每個故事的樣貌。
+            </p>
+        </header>
+
+        <section>
+            <h2>我會的甚麼?</h2>
+
+            <div class="gallery">
+
+                <article class="work">
+                    <img src="images/work1.jpg" alt="插畫作品一">
+                    <p>作品名稱一</p>
+                    <small>作品介紹：在這裡寫下創作想法。</small>
+                </article>
+
+                <article class="work">
+                    <img src="images/work2.jpg" alt="插畫作品二">
+                    <p>作品名稱二</p>
+                    <small>作品介紹：分享這張作品的特色。</small>
+                </article>
+
+            </div>
+        </section>
+
+        <footer>
+            © 2026 張昀耘 · Illustration Portfolio
+        </footer>
+
+    </main>
+</body>
+</html>

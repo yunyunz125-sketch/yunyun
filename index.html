@@ -74,13 +74,29 @@
         }
 
         /* 單一興趣標籤 */
-        .hobby {
-            background-color: #F1E9DE;
-            color: #695744;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 14px;
-        }
+      
+.hobby {
+    display: inline-block;
+    background-color: #F1E9DE;
+    color: #695744;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+/* 滑鼠移到標籤上時的效果 */
+.hobby:hover {
+    background-color: #E3D3BE;
+}
+
+/* 鍵盤選取連結時的提示 */
+.hobby:focus-visible {
+    outline: 2px solid #695744;
+    outline-offset: 3px;
+}
+
 
         /* 頁尾文字 */
         footer {
@@ -115,7 +131,7 @@
 
             <!-- 個人照片：可以替換成自己的圖片 -->
             <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
+                src="img/IMG_1.PNG"
                 alt="個人照片"
             >
 
@@ -124,9 +140,8 @@
 
             <!-- 個人簡介 -->
             <p class="intro">
-                yunyun
                 一位對美感與創作創新有極致要求的人
-                
+
             </p>
 
             <!-- 興趣 -->
