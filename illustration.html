@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>插畫創作｜月和和</title>
+    <title>設計軟體｜張昀耘</title>
 
     <style>
+        /* ===== 1. 網頁基本設定 ===== */
         body {
             margin: 0;
             background-color: #F7F4EE;
@@ -16,67 +17,125 @@
             line-height: 1.8;
         }
 
+        /* ===== 2. 主要內容區域 ===== */
         .container {
             max-width: 900px;
             margin: 40px auto;
             padding: 24px;
         }
 
+        /* ===== 3. 返回首頁連結 ===== */
         .back {
             color: #82766A;
             text-decoration: none;
+            font-size: 14px;
         }
 
         .back:hover {
             text-decoration: underline;
         }
 
+        /* ===== 4. 頁面標題 ===== */
         header {
             text-align: center;
             padding: 35px 0;
         }
 
+        .subtitle {
+            color: #A49A8F;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
         h1 {
             font-size: 32px;
             letter-spacing: 4px;
+            margin: 10px 0;
         }
 
         .intro {
+            max-width: 580px;
+            margin: 15px auto 0;
             color: #82766A;
         }
 
+        /* ===== 5. 區塊標題 ===== */
         h2 {
             font-size: 22px;
             font-weight: normal;
             border-bottom: 1px solid #E5DCCF;
             padding-bottom: 8px;
-            margin-top: 40px;
+            margin-top: 35px;
         }
 
-        .gallery {
+        /* ===== 6. 軟體卡片排列 ===== */
+        .software-list {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
+            margin-top: 20px;
         }
 
-        .work {
-            background-color: white;
-            padding: 12px;
+        /* ===== 7. 單一軟體卡片 ===== */
+        .software-card {
+            background-color: #FFFFFF;
+            padding: 24px;
             border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(80, 60, 40, 0.04);
+            transition: transform 0.2s ease;
         }
 
-        .work img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            border-radius: 8px;
-            display: block;
+        .software-card:hover {
+            transform: translateY(-3px);
         }
 
-        .work p {
-            margin-bottom: 0;
+        /* 軟體圖示區域 */
+        .software-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F1E9DE;
+            color: #695744;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
+        /* 軟體名稱 */
+        h3 {
+            font-size: 19px;
+            margin: 16px 0 4px;
+        }
+
+        /* 英文名稱 */
+        .english-name {
+            color: #A49A8F;
+            font-size: 12px;
+            margin-top: 0;
+        }
+
+        /* 軟體用途 */
+        .description {
+            color: #82766A;
+            font-size: 14px;
+        }
+
+        /* 技能標籤 */
+        .tag {
+            display: inline-block;
+            background-color: #F7F4EE;
+            color: #695744;
+            padding: 4px 10px;
+            margin: 4px 4px 0 0;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* ===== 8. 頁尾 ===== */
         footer {
             text-align: center;
             color: #A49A8F;
@@ -84,59 +143,263 @@
             font-size: 13px;
         }
 
+        /* ===== 9. 手機版排版 ===== */
         @media (max-width: 600px) {
-            .gallery {
-                grid-template-columns: 1fr;
+            .container {
+                margin: 20px auto;
+                padding: 18px;
             }
 
             h1 {
                 font-size: 26px;
+            }
+
+            .software-list {
+                grid-template-columns: 1fr;
+            }
+
+            .software-card {
+                padding: 20px;
             }
         }
     </style>
 </head>
 
 <body>
+
     <main class="container">
 
+        <!-- 返回首頁 -->
         <a href="index.html" class="back">
             ← 返回個人首頁
         </a>
 
+        <!-- 頁面介紹 -->
         <header>
-            <h1>自我介紹</h1>
+            <p class="subtitle">My Creative Toolkit</p>
+
+            <h1>設計軟體</h1>
 
             <p class="intro">
-                你好，我是昀耘。
-                這裡收藏了我的繪畫作品與創作紀錄，
-                希望透過畫面呈現每個故事的樣貌。
+                從數位繪圖到視覺設計，
+                我運用不同的工具整理創意，
+                將腦海中的想法轉化為具體作品。
             </p>
         </header>
 
+        <!-- 軟體技能區 -->
         <section>
-            <h2>我會的甚麼?</h2>
+            <h2>我使用的工具</h2>
 
-            <div class="gallery">
+            <div class="software-list">
 
-                <article class="work">
-                    <img src="images/work1.jpg" alt="插畫作品一">
-                    <p>作品名稱一</p>
-                    <small>作品介紹：在這裡寫下創作想法。</small>
+                <!-- Photoshop -->
+                <article class="software-card">
+
+                    <div class="software-icon">
+                        Ps
+                    </div>
+
+                    <h3>Photoshop</h3>
+
+                    <p class="english-name">
+                        Adobe Photoshop
+                    </p>
+
+                    <p class="description">
+                        用於影像處理、圖片合成、
+                        插畫後製與視覺素材調整。
+                    </p>
+
+                    <div>
+                        <span class="tag">影像編修</span>
+                        <span class="tag">圖片合成</span>
+                        <span class="tag">插畫後製</span>
+                    </div>
+
                 </article>
 
-                <article class="work">
-                    <img src="images/work2.jpg" alt="插畫作品二">
-                    <p>作品名稱二</p>
-                    <small>作品介紹：分享這張作品的特色。</small>
+                <!-- Illustrator -->
+                <article class="software-card">
+
+                    <div class="software-icon">
+                        Ai
+                    </div>
+
+                    <h3>Illustrator</h3>
+
+                    <p class="english-name">
+                        Adobe Illustrator
+                    </p>
+
+                    <p class="description">
+                        用於向量圖形設計、
+                        版面編排與視覺素材製作。
+                    </p>
+
+                    <div>
+                        <span class="tag">向量圖形</span>
+                        <span class="tag">版面編排</span>
+                        <span class="tag">視覺設計</span>
+                    </div>
+
                 </article>
+
+                <!-- 數位繪圖 -->
+                <article class="software-card">
+
+                    <div class="software-icon">
+                        Art
+                    </div>
+
+                    <h3>數位繪圖</h3>
+
+                    <p class="english-name">
+                        Digital Drawing
+                    </p>
+
+                    <p class="description">
+                        透過數位繪圖進行插畫創作、
+                        人物表現與原創角色視覺設計。
+                    </p>
+
+                    <div>
+                        <span class="tag">插畫創作</span>
+                        <span class="tag">人物繪製</span>
+                        <span class="tag">角色設計</span>
+                    </div>
+
+                </article>
+                
+<!-- Premiere Pro -->
+<article class="software-card">
+
+    <div class="software-icon">
+        Pr
+    </div>
+
+    <h3>Premiere Pro</h3>
+
+    <p class="english-name">
+        Adobe Premiere Pro
+    </p>
+
+    <p class="description">
+        用於影片剪輯、影音素材整理、
+        片段編排與影片後製。
+    </p>
+
+    <div>
+        <span class="tag">影片剪輯</span>
+        <span class="tag">影音後製</span>
+        <span class="tag">時間軸編輯</span>
+    </div>
+
+</article>
+
+
+<!-- 剪映 -->
+<article class="software-card">
+
+    <div class="software-icon">
+        剪
+    </div>
+
+    <h3>剪映</h3>
+
+    <p class="english-name">
+        Jianying / CapCut
+    </p>
+
+    <p class="description">
+        用於短影音剪輯、轉場效果、
+        音樂搭配與影片節奏調整。
+    </p>
+
+    <div>
+        <span class="tag">短影音</span>
+        <span class="tag">轉場效果</span>
+        <span class="tag">音樂剪輯</span>
+    </div>
+
+</article>
+
+
+<!-- ChatGPT -->
+<article class="software-card">
+
+    <div class="software-icon">
+        GPT
+    </div>
+
+    <h3>ChatGPT</h3>
+
+    <p class="english-name">
+        AI Creative Assistant
+    </p>
+
+    <p class="description">
+        協助創意發想、內容規劃、
+        文案整理與 AI 工具提示詞撰寫。
+    </p>
+
+    <div>
+        <span class="tag">創意發想</span>
+        <span class="tag">文案整理</span>
+        <span class="tag">AI 協作</span>
+    </div>
+
+</article>
+
+
+<!-- MOONLAND -->
+<article class="software-card">
+
+    <div class="software-icon">
+        ML
+    </div>
+
+    <h3>MOONLAND</h3>
+
+    <p class="english-name">
+        AI Image & Video Creation
+    </p>
+
+    <p class="description">
+        用於 AI 影像或影片生成，
+        將創意概念轉化為視覺素材，
+        並探索 AI 影音創作的可能性。
+    </p>
+
+    <div>
+        <span class="tag">AI 影像生成</span>
+        <span class="tag">AI 影片生成</span>
+        <span class="tag">提示詞設計</span>
+    </div>
+
+</article>
+
 
             </div>
         </section>
 
+        <!-- 個人理念 -->
+        <section>
+            <h2>我的創作方式</h2>
+
+            <p class="intro">
+                我重視畫面的整體風格與細節，
+                會依照不同的創作需求選擇適合的工具，
+                希望讓每一份設計都能清楚傳達想法。
+            </p>
+        </section>
+
+        <!-- 頁尾 -->
         <footer>
-            © 2026 張昀耘 · Illustration Portfolio
+            © 2026 張昀耘 · Design Portfolio
         </footer>
 
     </main>
+
 </body>
 </html>
