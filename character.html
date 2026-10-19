@@ -5,136 +5,539 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>排版設計｜張昀耘</title>
+    <title>設計作品集｜張昀耘</title>
 
     <style>
+        /* ===== 基本設定 ===== */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             background-color: #F7F4EE;
             color: #51483F;
-            font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                sans-serif;
             line-height: 1.8;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 24px;
-        }
-
-        .back {
-            color: #82766A;
+        a {
+            color: inherit;
             text-decoration: none;
         }
 
-        .back:hover {
-            text-decoration: underline;
+        img {
+            display: block;
+            width: 100%;
         }
 
+        /* ===== 網頁主要容器 ===== */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 0 60px;
+        }
+
+        /* ===== 返回首頁 ===== */
+        .back {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #82766A;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back:hover {
+            color: #51483F;
+        }
+
+        /* ===== 頁面標題 ===== */
         header {
-            text-align: center;
-            padding: 35px 0;
+            margin-bottom: 35px;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: #9A826A;
+            font-size: 12px;
+            letter-spacing: 3px;
         }
 
         h1 {
-            font-size: 32px;
-            letter-spacing: 4px;
+            margin: 0 0 12px;
+            font-size: clamp(30px, 5vw, 42px);
+            font-weight: 500;
+            letter-spacing: 2px;
         }
 
-        .intro {
+        .subtitle {
+            margin: 0;
             color: #82766A;
+            font-size: 15px;
         }
 
-        h2 {
-            font-size: 22px;
-            font-weight: normal;
-            border-bottom: 1px solid #E5DCCF;
-            padding-bottom: 8px;
-            margin-top: 40px;
+        /* ===== 個人介紹 ===== */
+        .intro {
+            margin-bottom: 38px;
+            padding: 26px 28px;
+            background-color: #EFE7DC;
+            border-radius: 16px;
         }
 
-        .gallery {
+        .intro h2 {
+            margin: 0 0 10px;
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        .intro p {
+            margin: 0;
+            color: #716459;
+            font-size: 14px;
+        }
+
+        /* ===== 設計能力 ===== */
+        .skills {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
         }
 
-        .work {
-            background-color: white;
-            padding: 12px;
+        .skill-card {
+            padding: 20px;
+            background-color: #FFFFFF;
             border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(80, 65, 48, 0.04);
         }
 
-        .work img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            border-radius: 8px;
-            display: block;
+        .skill-number {
+            margin: 0 0 6px;
+            color: #A18B73;
+            font-size: 11px;
+            letter-spacing: 2px;
         }
 
-        .work p {
-            margin-bottom: 0;
+        .skill-card h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            font-weight: 500;
         }
 
-        footer {
-            text-align: center;
-            color: #A49A8F;
-            margin-top: 50px;
+        .skill-card p {
+            margin: 0;
+            color: #82766A;
             font-size: 13px;
         }
 
-        @media (max-width: 600px) {
-            .gallery {
-                grid-template-columns: 1fr;
+        /* ===== 作品區標題 ===== */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: 23px;
+            font-weight: 500;
+        }
+
+        .section-heading span {
+            color: #9A8B7B;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .section-intro {
+            margin: -12px 0 25px;
+            color: #82766A;
+            font-size: 13px;
+        }
+
+        /* ===== 作品卡片網格 ===== */
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        /* ===== 單件作品卡片 ===== */
+        .work-card {
+            overflow: hidden;
+            background-color: #FFFFFF;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(80, 65, 48, 0.05);
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(80, 65, 48, 0.10);
+        }
+
+        /* 作品圖片 */
+        .work-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            background-color: #E9E1D6;
+        }
+
+        /* 作品內容 */
+        .work-content {
+            padding: 22px;
+        }
+
+        .work-number {
+            margin: 0 0 6px;
+            color: #A18B73;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .work-card h3 {
+            margin: 0 0 10px;
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        .description {
+            margin: 0 0 16px;
+            color: #82766A;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* 技能標籤 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            color: #756658;
+            background-color: #F3E9DE;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        /* ===== 結尾文字 ===== */
+        .closing {
+            margin-top: 50px;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid #E5DCCF;
+        }
+
+        .closing h2 {
+            margin: 0 0 8px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .closing p {
+            margin: 0;
+            color: #82766A;
+            font-size: 13px;
+        }
+
+        /* ===== 頁尾 ===== */
+        footer {
+            margin-top: 28px;
+            color: #A09487;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* ===== 平板版 ===== */
+        @media (max-width: 800px) {
+            .skills {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            h1 {
-                font-size: 26px;
+            .work-list {
+                gap: 18px;
+            }
+        }
+
+        /* ===== 手機版 ===== */
+        @media (max-width: 560px) {
+            .container {
+                width: 90%;
+                padding-top: 28px;
+            }
+
+            .intro {
+                padding: 20px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .work-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .work-content {
+                padding: 20px;
+            }
+
+            .section-heading h2 {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 
 <body>
+
     <main class="container">
- <a href="index.html" class="back">
-            ← 返回個人首頁
-        </a>
-       <title>排版設計｜張昀耘</title>
 
-<h1>平面設計</h1>
+        <!-- 返回首頁 -->
+        <a href="index.html" class="back">← 返回首頁</a>
 
-<p class="intro">
-    關於我的作品
-</p>
-    
+        <!-- 頁面標題 -->
+        <header>
+            <p class="eyebrow">DESIGN PORTFOLIO</p>
+            <h1>設計作品集</h1>
+            <p class="subtitle">
+                將創意轉化為視覺，讓每一份設計都有清楚的目的。
+            </p>
         </header>
 
+        <!-- 個人設計介紹 -->
+        <section class="intro">
+            <h2>關於我的設計</h2>
+            <p>
+                具備數位繪圖、圖像製作與視覺設計相關之經驗，
+                曾參與漫畫背景製作商業專案與個人影片簡易剪輯製作，
+                也累積個人委託與同人周邊製作經驗。
+                擅長從圖像與創意發想出發，
+                持續學習不同設計工具與視覺表現方式，
+                期望在美編與視覺設計領域累積更多實務經驗。
+            </p>
+        </section>
+
+        <!-- 設計能力 -->
         <section>
-            <h2>我的作品</h2>
+            <div class="section-heading">
+                <h2>設計能力</h2>
+                <span>MY SKILLS</span>
+            </div>
 
-            <div class="gallery">
+            <div class="skills">
 
-                <article class="work">
-                    <img src="images/work1.jpg" alt="插畫作品一">
-                    <p>作品名稱一</p>
-                    <small>作品介紹：在這裡寫下創作想法。</small>
+                <article class="skill-card">
+                    <p class="skill-number">01 / VISUAL</p>
+                    <h3>視覺編排</h3>
+                    <p>
+                        重視畫面構成、色彩搭配與資訊層級，
+                        讓視覺內容清楚且具有一致性。
+                    </p>
                 </article>
 
-                <article class="work">
-                    <img src="images/work2.jpg" alt="插畫作品二">
-                    <p>作品名稱二</p>
-                    <small>作品介紹：分享這張作品的特色。</small>
+                <article class="skill-card">
+                    <p class="skill-number">02 / GRAPHIC</p>
+                    <h3>圖像製作</h3>
+                    <p>
+                        具備數位繪圖與圖像處理經驗，
+                        可將創意轉化為視覺素材。
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <p class="skill-number">03 / PRODUCTION</p>
+                    <h3>設計執行</h3>
+                    <p>
+                        有商業背景製作、個人委託與周邊製作經驗，
+                        持續累積專案執行能力。
+                    </p>
                 </article>
 
             </div>
         </section>
 
+        <!-- 精選作品 -->
+        <section class="works">
+
+            <div class="section-heading">
+                <h2>精選作品</h2>
+                <span>SELECTED WORKS</span>
+            </div>
+
+            <p class="section-intro">
+                依照設計應用類型分類，呈現不同的視覺設計能力。
+            </p>
+
+            <div class="work-list">
+
+                <!-- 作品一：平面視覺設計 -->
+                <article class="work-card">
+                    <img
+                        class="work-image"
+                        src="images/graphic-design.jpg"
+                        alt="平面視覺設計作品"
+                        loading="lazy"
+                    >
+
+                    <div class="work-content">
+                        <p class="work-number">01 / GRAPHIC DESIGN</p>
+                        <h3>平面視覺設計</h3>
+
+                        <p class="description">
+                            展示海報、活動主視覺與平面編排作品，
+                            著重構圖、色彩運用、字體搭配，
+                            以及整體視覺的一致性。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">海報設計</span>
+                            <span class="tag">版面編排</span>
+                            <span class="tag">視覺設計</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品二：商品與印刷設計 -->
+                <article class="work-card">
+                    <img
+                        class="work-image"
+                        src="images/print-product.jpg"
+                        alt="商品與印刷設計作品"
+                        loading="lazy"
+                    >
+
+                    <div class="work-content">
+                        <p class="work-number">02 / PRINT & PRODUCT</p>
+                        <h3>商品與印刷設計</h3>
+
+                        <p class="description">
+                            展示卡片、明信片、吊飾或其他周邊成果，
+                            呈現從圖像設計到實體成品的應用，
+                            並記錄相關製作經驗。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">周邊設計</span>
+                            <span class="tag">印刷應用</span>
+                            <span class="tag">商品視覺</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品三：數位行銷與社群美編 -->
+                <article class="work-card">
+                    <img
+                        class="work-image"
+                        src="images/social-media.jpg"
+                        alt="社群行銷與數位美編作品"
+                        loading="lazy"
+                    >
+
+                    <div class="work-content">
+                        <p class="work-number">03 / DIGITAL DESIGN</p>
+                        <h3>數位行銷與社群美編</h3>
+
+                        <p class="description">
+                            展示社群貼文、活動宣傳圖與商品促銷視覺，
+                            強調資訊整理、閱讀順序與畫面吸引力，
+                            讓內容更容易被理解。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">社群貼文</span>
+                            <span class="tag">活動宣傳</span>
+                            <span class="tag">數位圖像</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品四：插畫與視覺素材 -->
+                <article class="work-card">
+                    <img
+                        class="work-image"
+                        src="images/illustration.jpg"
+                        alt="插畫與視覺素材作品"
+                        loading="lazy"
+                    >
+
+                    <div class="work-content">
+                        <p class="work-number">04 / ILLUSTRATION</p>
+                        <h3>插畫與視覺素材</h3>
+
+                        <p class="description">
+                            展示個人插畫、角色圖像與漫畫背景製作成果，
+                            呈現繪圖技巧、細節處理與個人美感，
+                            作為平面設計的視覺延伸能力。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">數位繪圖</span>
+                            <span class="tag">插畫</span>
+                            <span class="tag">漫畫背景</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 作品五：品牌與整合設計 -->
+                <article class="work-card">
+                    <img
+                        class="work-image"
+                        src="images/branding.jpg"
+                        alt="品牌與整合視覺設計作品"
+                        loading="lazy"
+                    >
+
+                    <div class="work-content">
+                        <p class="work-number">05 / BRAND IDENTITY</p>
+                        <h3>品牌與整合設計</h3>
+
+                        <p class="description">
+                            展示品牌標誌、配色、字體與延伸視覺，
+                            以一致的設計語言串連不同應用，
+                            呈現整體規劃與視覺統整能力。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Logo 設計</span>
+                            <span class="tag">品牌識別</span>
+                            <span class="tag">視覺統整</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 頁面結尾 -->
+        <section class="closing">
+            <h2>讓每一個想法，都成為具體的設計。</h2>
+            <p>
+                持續累積實作經驗，探索視覺設計的更多可能。
+            </p>
+        </section>
+
+        <!-- 頁尾 -->
         <footer>
-            © 2026 張昀耘 · Illustration Portfolio
+            © 2026 張昀耘｜設計作品集
         </footer>
 
     </main>
+
 </body>
 </html>
